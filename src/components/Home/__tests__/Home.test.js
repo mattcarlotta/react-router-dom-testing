@@ -1,14 +1,19 @@
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
 import Home from "../index";
+
+jest.mock("react-router", () => ({
+  __esModule: true,
+  useLocation: jest.fn().mockReturnValue({
+    pathname: "/testroute",
+    search: "?title=Home&path=/",
+    hash: "",
+    state: null,
+  }),
+}));
 
 describe("Home", () => {
   beforeEach(() => {
-    render(
-      <MemoryRouter initialEntries={["/?title=Home&path=/"]}>
-        <Home />
-      </MemoryRouter>
-    );
+    render(<Home />);
   });
 
   it("renders Home page title", () => {
