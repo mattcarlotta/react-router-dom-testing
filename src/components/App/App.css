@@ -1,0 +1,12 @@
+.app {
+  text-align: center;
+}
+
+.nav-container {
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 5px;
+}
